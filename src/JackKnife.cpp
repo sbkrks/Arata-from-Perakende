@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <string>
 #include <sstream>
-#include "Parameters.h"
+#include "../head/Parameters.h"
 
 static int j;
 static double*OlcumBar;

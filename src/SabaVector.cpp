@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <string>
 
-#include "SabaRandoms.h"
+#include "../head/SabaRandoms.h"
 using namespace std;
 
 static int j, k, l, m, n, p, q;

@@ -10,12 +10,12 @@
 #include <sstream>
 
 //#include "SabaComplexMatrix.h"
-#include "SabaMatrix.h"
-#include "SabaRandoms.h"
-#include "SabaVector.h"
-#include "SabaSiteUpdater.h"
-#include "JackKnife.h"
-#include "Parameters.h"
+#include "head/SabaMatrix.h"
+#include "head/SabaRandoms.h"
+#include "head/SabaVector.h"
+#include "head/SabaSiteUpdater.h"
+#include "head/JackKnife.h"
+#include "head/Parameters.h"
 
 //////////////////////////////////////////////////////////
 // arxiv.1603.00716v1									//
