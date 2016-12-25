@@ -1,0 +1,3 @@
+all:
+	g++ -std=c++11 main2wndws.cpp JackKnife.cpp SabaMatrix.cpp SabaRandoms.cpp SabaSiteUpdater.cpp SabaVarious.cpp SabaVector.cpp -o deneme
+compile:
