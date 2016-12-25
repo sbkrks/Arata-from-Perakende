@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <string>
 
-#include "SabaVector.h"
+#include "../head/SabaVector.h"
 
 static int j, k, l, m, n, p, q;
 static double Tr, detA, sum;

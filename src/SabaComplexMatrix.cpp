@@ -7,16 +7,16 @@
 #include <iomanip>
 #include <string>
 
-#include "SabaVector.h"
-#include "SabaMatrix.h"
-#include "SabaRandoms.h"
-#include "Parameters.h"
+#include "../head/SabaVector.h"
+#include "../head/SabaMatrix.h"
+#include "../head/SabaRandoms.h"
+#include "../head/Parameters.h"
 
 using namespace std;
 
 static int j, k, l;
-static double alpha1, aplha2, alpha3;
-static double* ab, a, b, c;
+static double alpha1, alpha2, alpha3;
+static double* ab, a2, b, c;
 static double** P, PI;
 static complex<double> detA, sum, z1, z2, z3;
 static complex<double>** A, B, C, D, DPI, PDPI, BC, ABC, A1, A2, A3, A4, A5, A6;
@@ -211,28 +211,28 @@ complex<double>** MatrixConjugate(complex<double>** A) {
 complex<double>** SU3_Rand_Gnrtr() { //Randomly generates an SU(3) matrix.
 	double* ab = GramSchmidt(3);
 
-	double* a = new double[3];
+	double* a2 = new double[3];
 	double* b = new double[3];
 	for (j = 0; j <= 2; ++j) {
-		a[j] = ab[j];
+		a2[j] = ab[j];
 		b[j] = ab[j + 3];
 	}
 
 	delete[] ab;
 
-	double* c = VecCross3D(a, b);
+	double* c = VecCross3D(a2, b);
 
 	double** P = new double*[3];
 	for (j = 0; j <= 2; ++j) {
 		P[j] = new double[3];
 	}
 	for (j = 0; j <= 2; ++j) {
-		P[0][j] = a[j];
+		P[0][j] = a2[j];
 		P[1][j] = b[j];
 		P[2][j] = c[j];
 	}
 
-	delete[] a;
+	delete[] a2;
 	delete[] b;
 	delete[] c;
 

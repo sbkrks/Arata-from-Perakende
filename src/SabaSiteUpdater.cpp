@@ -5,11 +5,11 @@
 #include <string>
 #include <sstream>
 
-#include "SabaComplexMatrix.h"
-#include "SabaMatrix.h"
-#include "SabaRandoms.h"
-#include "SabaVector.h"
-#include "Parameters.h"
+#include "../head/SabaComplexMatrix.h"
+#include "../head/SabaMatrix.h"
+#include "../head/SabaRandoms.h"
+#include "../head/SabaVector.h"
+#include "../head/Parameters.h"
 
 
 using namespace std;
