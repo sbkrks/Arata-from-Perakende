@@ -177,9 +177,9 @@ int main() {
 //		cout << "loop #" << aloop + 1 << endl;
 //		a = alist[aloop];				// lattice spacing
         cout << "a = " << a << endl;
-		double m2 = -0.2 / (a * a);			// the square of the tachyonic mass
-		double R = (N_t * a) / (4 * Pi);		// Schwartzschild radius of the blackhole
-		double epsilon = 0.1 * a;				// a small number will be added to r so as to avoid the singularity at r = R
+//		double m2 = -0.2 / (a * a);			// the square of the tachyonic mass
+//		double R = (N_t * a) / (4 * Pi);		// Schwartzschild radius of the blackhole
+//		double epsilon = 0.1 * a;				// a small number will be added to r so as to avoid the singularity at r = R
 
 		//char date[9];
         //_strdate_s(date);
@@ -261,7 +261,7 @@ int main() {
 				double r = (Index1 * a + R + epsilon);
 				f = 1 - R / r;
 
-				Phi[Index1][Index2][Index3][Index4] = PhiUpdater(m2, f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
+				Phi[Index1][Index2][Index3][Index4] = PhiUpdater(f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
 
 			}
 			//////////////////////////////////////////////
@@ -323,7 +323,7 @@ int main() {
 
 					f = 1 - R / (Index1 * a + R + epsilon);
 
-					Phi[Index1][Index2][Index3][Index4] = PhiUpdater(m2, f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
+					Phi[Index1][Index2][Index3][Index4] = PhiUpdater(f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
 
 				}
 			}
