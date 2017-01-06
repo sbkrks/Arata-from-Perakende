@@ -173,24 +173,6 @@ int main() {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	int Index1, Index2, Index3, Index4, Index1m, Index2m, Index3m, Index4m, Index1p, Index2p, Index3p, Index4p;		// indices correspond to IndexConf1, IndexConf2, IndexConf3, IndexConf4, IndexConf5, IndexConf6, IndexConf7, IndexConf8 respectively
-//	int aloop;			// index for loop of a
-//	double alist[15];
-//	double a, m2, R, epsilon;
-//	alist[0] = 0.2;
-//	alist[1] = 0.5;
-//	alist[2] = 0.7;
-//	alist[3] = 1.0;
-//	alist[4] = 1.5;
-//	alist[5] = 2.0;
-//	alist[6] = 2.5;
-//	alist[7] = 3.0;
-//	alist[8] = 3.5;
-//	alist[9] = 4.0;
-//	alist[10] = 5.0;
-//	alist[11] = 6.0;
-//	alist[12] = 7.0;
-//	alist[13] = 8.0;
-//	alist[14] = 9.0;
 
 //		cout << "loop #" << aloop + 1 << endl;
 //		a = alist[aloop];				// lattice spacing
