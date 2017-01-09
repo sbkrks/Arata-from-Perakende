@@ -174,6 +174,7 @@ int main() {
 
 	int Index1, Index2, Index3, Index4, Index1m, Index2m, Index3m, Index4m, Index1p, Index2p, Index3p, Index4p;		// indices correspond to IndexConf1, IndexConf2, IndexConf3, IndexConf4, IndexConf5, IndexConf6, IndexConf7, IndexConf8 respectively
 
+
 //		cout << "loop #" << aloop + 1 << endl;
 //		a = alist[aloop];				// lattice spacing
         cout << "a = " << a << endl;
@@ -192,14 +193,16 @@ int main() {
 //		InitField << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 //		InitField << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
-		string EquiFolderName("OEquilibria_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
-		ofstream Equi(EquiFolderName);
+		string EquiFolderName("output//Equilibria_a" + dtos(a) + "_Nconf" + itos(N_conf));
+		ofstream Equi;
+		Equi.open((EquiFolderName).c_str());
 		Equi << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
 		Equi << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 		Equi << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
-		string CondansateFolderName("OCondensate_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
-		ofstream Cndnst1(CondansateFolderName);
+		string CondansateFolderName("output//Condensate_a" + dtos(a) + "_Nconf" + itos(N_conf));
+		ofstream Cndnst1;
+		Cndnst1.open((CondansateFolderName).c_str());
 		Cndnst1 << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
 		Cndnst1 << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 		Cndnst1 << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
@@ -340,7 +343,6 @@ int main() {
 
 		}
 		cout << "Olcum bitti." << endl;
-
 		cout << "Fiziksel nicelikler hesaplaniyor..." << endl;
 		double A;
 		double A2;
