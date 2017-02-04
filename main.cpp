@@ -174,12 +174,13 @@ int main() {
 
 	int Index1, Index2, Index3, Index4, Index1m, Index2m, Index3m, Index4m, Index1p, Index2p, Index3p, Index4p;		// indices correspond to IndexConf1, IndexConf2, IndexConf3, IndexConf4, IndexConf5, IndexConf6, IndexConf7, IndexConf8 respectively
 
+
 //		cout << "loop #" << aloop + 1 << endl;
 //		a = alist[aloop];				// lattice spacing
         cout << "a = " << a << endl;
-		double m2 = -0.2 / (a * a);			// the square of the tachyonic mass
-		double R = (N_t * a) / (4 * Pi);		// Schwartzschild radius of the blackhole
-		double epsilon = 0.1 * a;				// a small number will be added to r so as to avoid the singularity at r = R
+//		double m2 = -0.2 / (a * a);			// the square of the tachyonic mass
+//		double R = (N_t * a) / (4 * Pi);		// Schwartzschild radius of the blackhole
+//		double epsilon = 0.1 * a;				// a small number will be added to r so as to avoid the singularity at r = R
 
 		//char date[9];
         //_strdate_s(date);
@@ -192,18 +193,24 @@ int main() {
 //		InitField << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 //		InitField << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
-		string EquiFolderName("OEquilibria_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
-		ofstream Equi(EquiFolderName);
-		Equi << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
-		Equi << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
-		Equi << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
+		string RunDetailsFolderName("output//RunDetails_a" + dtos(a) + "_Nconf" + itos(N_conf));
+		ofstream RnDtls;
+		RnDtls.open((RunDetailsFolderName).c_str());
+		RnDtls << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;//
+		RnDtls << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
+		RnDtls << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
+		RnDtls << "C = C_inf / C_0" << "\nC_inf[i] = <Phi[i]> * <Phi[i']>" << endl;
 
-		string CondansateFolderName("OCondensate_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
-		ofstream Cndnst1(CondansateFolderName);
-		Cndnst1 << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
-		Cndnst1 << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
-		Cndnst1 << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
-		Cndnst1 << "C = C_inf / C_0" << "\nC_inf[i] = <Phi[i]> * <Phi[i']>" << endl;
+		string EquiFolderName("output//Equilibria_a" + dtos(a) + "_Nconf" + itos(N_conf));
+		ofstream Equi;
+		Equi.open((EquiFolderName).c_str());
+
+		string CondansateFolderName("output//Condensate_a" + dtos(a) + "_Nconf" + itos(N_conf));
+		ofstream Cndnst1;
+		Cndnst1.open((CondansateFolderName).c_str());
+//		Cndnst1 << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
+//		Cndnst1 << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
+//		Cndnst1 << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
 //		string FieldMeasFolderName("OFieldMeasurements_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
 //		ofstream FieldMeas(FieldMeasFolderName);
@@ -241,7 +248,7 @@ int main() {
 		//		Beginning of The Warm Up Monte Carlo		 //
 		///////////////////////////////////////////////////////
 		cout << "Warm-Up Monte Carlo basladi." << endl;
-		for (mcs = 1; mcs <= 10 * N_equi; ++mcs) {
+		for (mcs = 1; mcs <= 1 * N_equi; ++mcs) {
 			for (j = 1; j <= N; ++j) {
 				Index1 = Randi(N_r); Index1m = Index1 - 1; Index1p = Index1 + 1;
 				Index2 = Randi(N_y); Index2m = Index2 - 1; Index2p = Index2 + 1;
@@ -261,7 +268,7 @@ int main() {
 				double r = (Index1 * a + R + epsilon);
 				f = 1 - R / r;
 
-				Phi[Index1][Index2][Index3][Index4] = PhiUpdater(m2, f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
+				Phi[Index1][Index2][Index3][Index4] = PhiUpdater(f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
 
 			}
 			//////////////////////////////////////////////
@@ -323,7 +330,7 @@ int main() {
 
 					f = 1 - R / (Index1 * a + R + epsilon);
 
-					Phi[Index1][Index2][Index3][Index4] = PhiUpdater(m2, f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
+					Phi[Index1][Index2][Index3][Index4] = PhiUpdater(f, Phi[Index1][Index2][Index3][Index4], Phi[Index1m][Index2][Index3][Index4], Phi[Index1][Index2m][Index3][Index4], Phi[Index1][Index2][Index3m][Index4], Phi[Index1][Index2][Index3][Index4m], Phi[Index1p][Index2][Index3][Index4], Phi[Index1][Index2p][Index3][Index4], Phi[Index1][Index2][Index3p][Index4], Phi[Index1][Index2][Index3][Index4p]);
 
 				}
 			}
@@ -340,7 +347,6 @@ int main() {
 
 		}
 		cout << "Olcum bitti." << endl;
-
 		cout << "Fiziksel nicelikler hesaplaniyor..." << endl;
 		double A;
 		double A2;
@@ -403,6 +409,7 @@ int main() {
 		//InitField.close();
 		Cndnst1.close();
 		Equi.close();
+		RnDtls.close();
 		//FieldMeas.close();
 
 //

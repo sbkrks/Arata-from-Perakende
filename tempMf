@@ -1,5 +1,5 @@
 CPP_FILES := $(wildcard src/*.cpp)
-ExeSuf=9.0
+ExeSuf=aValue
 MAINEVENTS    = main.cpp 
 MAINEVENTO    = arata$(ExeSuf) 
 
