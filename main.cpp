@@ -193,6 +193,7 @@ int main() {
 //		InitField << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 //		InitField << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
+
 		string RunDetailsFolderName("output//RunDetails_a" + dtos(a) + "_Nconf" + itos(N_conf));
 		ofstream RnDtls;
 		RnDtls.open((RunDetailsFolderName).c_str());
@@ -211,7 +212,7 @@ int main() {
 //		Cndnst1 << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
 //		Cndnst1 << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 //		Cndnst1 << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
-
+  
 //		string FieldMeasFolderName("OFieldMeasurements_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
 //		ofstream FieldMeas(FieldMeasFolderName);
 //		FieldMeas << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;

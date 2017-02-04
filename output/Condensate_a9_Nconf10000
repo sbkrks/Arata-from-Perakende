@@ -1,0 +1,15 @@
+date
+Caution!
+ This is the one we record the measurements seperately.
+We measure the mean value of Phi and Phi^2.
+And we record Phi during measurements.
+
+# of Measurements = 10000	# of inbetween sweeps = 10
+
+
+a = 9
+m^2 = -0.00246914
+epsilon = 0.9
+
+C = C_inf / C_0
+C_inf[i] = <Phi[i]> * <Phi[i']>
