@@ -9,7 +9,7 @@
 
 //#define a 0.31622776601			// lattice spacing
 //#define a 2.176					// lattice spacing by Huseyin Bahtiyar
-#define a 9.0
+#define a aValue
 #define m2 -0.2 / (a * a)			// the square of the tachyonic mass
 #define R (N_t * a) / (4 * Pi)		// Schwartzschild radius of the blackhole
 #define epsilon 0.1 * a			// a small number added to r so as to avoid the singularity at r = R

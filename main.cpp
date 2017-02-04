@@ -193,21 +193,26 @@ int main() {
 //		InitField << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
 //		InitField << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
+
+		string RunDetailsFolderName("output//RunDetails_a" + dtos(a) + "_Nconf" + itos(N_conf));
+		ofstream RnDtls;
+		RnDtls.open((RunDetailsFolderName).c_str());
+		RnDtls << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;//
+		RnDtls << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
+		RnDtls << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
+		RnDtls << "C = C_inf / C_0" << "\nC_inf[i] = <Phi[i]> * <Phi[i']>" << endl;
+
 		string EquiFolderName("output//Equilibria_a" + dtos(a) + "_Nconf" + itos(N_conf));
 		ofstream Equi;
 		Equi.open((EquiFolderName).c_str());
-		Equi << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
-		Equi << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
-		Equi << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
 
 		string CondansateFolderName("output//Condensate_a" + dtos(a) + "_Nconf" + itos(N_conf));
 		ofstream Cndnst1;
 		Cndnst1.open((CondansateFolderName).c_str());
-		Cndnst1 << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
-		Cndnst1 << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
-		Cndnst1 << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
-		Cndnst1 << "C = C_inf / C_0" << "\nC_inf[i] = <Phi[i]> * <Phi[i']>" << endl;
-
+//		Cndnst1 << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
+//		Cndnst1 << "# of Measurements = " << N_conf << "\t# of inbetween sweeps = " << N_equi << "\n" << endl;
+//		Cndnst1 << "\na = " << a << "\nm^2 = " << m2 << "\nepsilon = " << epsilon << "\n" << endl;
+  
 //		string FieldMeasFolderName("OFieldMeasurements_a" + dtos(a) + "_Nconf" + itos(N_conf) + ".txt");
 //		ofstream FieldMeas(FieldMeasFolderName);
 //		FieldMeas << "date" << "\nCaution!\n This is the one we record the measurements seperately.\nWe measure the mean value of Phi and Phi^2.\nAnd we record Phi during measurements.\n" << endl;
@@ -244,7 +249,7 @@ int main() {
 		//		Beginning of The Warm Up Monte Carlo		 //
 		///////////////////////////////////////////////////////
 		cout << "Warm-Up Monte Carlo basladi." << endl;
-		for (mcs = 1; mcs <= 10 * N_equi; ++mcs) {
+		for (mcs = 1; mcs <= 1 * N_equi; ++mcs) {
 			for (j = 1; j <= N; ++j) {
 				Index1 = Randi(N_r); Index1m = Index1 - 1; Index1p = Index1 + 1;
 				Index2 = Randi(N_y); Index2m = Index2 - 1; Index2p = Index2 + 1;
@@ -405,6 +410,7 @@ int main() {
 		//InitField.close();
 		Cndnst1.close();
 		Equi.close();
+		RnDtls.close();
 		//FieldMeas.close();
 
 //
